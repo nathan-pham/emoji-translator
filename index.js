@@ -8,7 +8,10 @@ const findEmojiSynonym = (word) => {
     for (const [emoji, synonyms] of Object.entries(emojilib)) {
 
         if (synonyms.includes(preprocessedWord)) {
-            return emoji
+            return word.replace(
+                new RegExp(preprocessedWord, "gi"),
+                emoji
+            )
         }
     }
 
